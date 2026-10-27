@@ -1,0 +1,11 @@
+{
+  "title": "Sauny Kwadra",
+  "description": "Prezentuje całoroczne sauny ogrodowe Sauny Kwadra, ich opcje, ceny i realizacje oraz ułatwia zamówienie indywidualnej wyceny i dostawy.",
+  "robots": {
+    "index": false
+  },
+  "accessibility": {
+    "addBypassLinks": false,
+    "ignoreReducedMotion": false
+  }
+}

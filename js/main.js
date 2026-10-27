@@ -1,17 +1,17 @@
 const PRICING = {
-  models: [{ name: "Cube 2 m", price: "od 49 900 zł" }],
+  models: [{ name: "Cube 2 m", price: "Do potwierdzenia" }],
   heaters: [
-    { name: "Piec elektryczny", price: "w cenie bazowej" },
-    { name: "Piec na drewno", price: "+ 4 900 zł" },
+    { name: "Piec elektryczny", price: "Do potwierdzenia" },
+    { name: "Piec na drewno", price: "Do potwierdzenia" },
   ],
   options: [
-    { name: "Przeszklenie panoramiczne", price: "+ 3 500 zł" },
-    { name: "LED pod ławkami", price: "+ 900 zł" },
-    { name: "Ławki z osiki lub olchy", price: "+ 1 800 zł" },
+    { name: "Przeszklenie panoramiczne", price: "Do potwierdzenia" },
+    { name: "LED pod ławkami", price: "Do potwierdzenia" },
+    { name: "Ławki z osiki lub olchy", price: "Do potwierdzenia" },
   ],
   transport: [
-    { name: "Transport 0–100 km", price: "do wyceny" },
-    { name: "Transport 101–150 km", price: "do wyceny" },
+    { name: "Transport 0–100 km", price: "Wycena po podaniu lokalizacji" },
+    { name: "Transport 101–150 km", price: "Wycena po podaniu lokalizacji" },
   ],
 }
 const FORM_ENDPOINT = "https://example.pl/api/wycena",
@@ -93,8 +93,8 @@ const tbody = document.querySelector("#pricing"),
   heaterSelect = document.querySelector("#heater")
 ;[
   ["Model", PRICING.models],
-  ["Rodzaj pieca", PRICING.heaters],
-  ["Opcje", PRICING.options],
+  ["Piec", PRICING.heaters],
+  ["Wyposażenie dodatkowe", PRICING.options],
   ["Dostawa", PRICING.transport],
 ].forEach(([label, rows]) => {
   tbody.insertAdjacentHTML(
@@ -187,14 +187,14 @@ form.onsubmit = async (e) => {
     form.reset()
     document.querySelector("#count").textContent = "0 / 500"
     status.textContent =
-      "Dziękujemy. Odezwiemy się w ciągu jednego dnia roboczego."
+      "Dziękujemy za zapytanie. Wrócimy z informacjami o konfiguracji, cenie i dostawie."
   } catch {
     status.innerHTML =
       'Nie udało się wysłać formularza. Zadzwoń: <a href="tel:+48000000000">+48 000 000 000</a>.'
     status.className = "status bad"
   } finally {
     button.disabled = false
-    button.textContent = "Wyślij zapytanie"
+    button.textContent = "Poproś o wycenę"
   }
 }
 document.querySelector("#show-map").onclick = () => {
