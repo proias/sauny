@@ -4,8 +4,6 @@ import tailwindcss from '@tailwindcss/vite'
 import fs from 'node:fs'
 import path from 'node:path'
 
-import siteConfiguration from './.figma/make/site.json'
-
 
 // Vite config — https://vitejs.dev/config/
 export default defineConfig(({ mode }) => {
@@ -75,6 +73,11 @@ type FigmaSiteConfiguration = {
     addBypassLinks?: boolean
   }
 }
+
+const siteConfigurationPath = path.join(__dirname, '.figma', 'make', 'site.json')
+const siteConfiguration: FigmaSiteConfiguration = fs.existsSync(siteConfigurationPath)
+  ? JSON.parse(fs.readFileSync(siteConfigurationPath, 'utf8'))
+  : {}
 
 /** Applies /.figma/make/site.json to the generated document shell. */
 function figmaSiteConfiguration(config: FigmaSiteConfiguration): Plugin {
